@@ -59,4 +59,7 @@ WORKDIR /root
 RUN git clone https://github.com/seebi/dircolors-solarized
 
 EXPOSE 5173
+
+#меняем юзера с root на www-data
+USER www-data
 WORKDIR /var/www
