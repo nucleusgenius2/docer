@@ -14,6 +14,13 @@ RUN apt-get install -y libicu-dev \
   && docker-php-ext-configure intl \
   && docker-php-ext-install intl
 
+# для сокетов ларавел
+RUN docker-php-ext-install pcntl
+RUN docker-php-ext-configure pcntl --enable-pcntl
+
+# для умножения чисел с плавающий точкой
+RUN docker-php-ext-install bcmath
+
 # gd
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev && \
 docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
